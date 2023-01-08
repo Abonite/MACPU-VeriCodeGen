@@ -284,7 +284,7 @@ class MOV:
 
 class LOAD:
     arg_name = "LOAD"
-    base_bin_code = 1
+    base_bin_code = 4
     arg_num = 2
     alu_op = True
     append_args = [

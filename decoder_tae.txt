@@ -1,265 +1,265 @@
 TWO_ARGB: begin
-	case (inst)
-		`MOV_RR: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], argb[3:0], arga[3:0], 3'b000};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`LOAD: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h0, datamux[3:0], 3'b010};
-			addr = 16'b0;
-			data_alu = arga;
-		end
-		`ADD_RR: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], datamux[3:0], arga[3:0], 3'b000};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`ADD_RI: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h8, arga[3:0], 3'b010};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`SUB_RR: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], datamux[3:0], arga[3:0], 3'b000};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`SUB_RI: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h8, arga[3:0], 3'b010};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`AND_RR: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], datamux[3:0], arga[3:0], 3'b000};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`AND_RI: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h8, arga[3:0], 3'b010};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`OR_RR: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], datamux[3:0], arga[3:0], 3'b000};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`OR_RI: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h8, arga[3:0], 3'b010};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`NOT_RR: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], datamux[3:0], arga[3:0], 3'b000};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`NOT_RI: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h8, arga[3:0], 3'b010};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`XOR_RR: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], datamux[3:0], arga[3:0], 3'b000};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`XOR_RI: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h8, arga[3:0], 3'b010};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`RAND_R: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h0, arga[3:0], 3'b000};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`RAND_I: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`ROR_R: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h0, arga[3:0], 3'b000};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`ROR_I: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`RXOR_R: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h0, arga[3:0], 3'b000};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`RXOR_I: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`LSL_I: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`LSR_I: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`ASL_I: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`ASR_I: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`CSL_I: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`CSR_I: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`INC: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h0, arga[3:0], 3'b000};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`DEC: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b010;
-			dc_control_code = 4'b0010;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {inst[7:0], 4'h0, arga[3:0], 3'b000};
-			addr = 16'b0;
-			data_alu = 16'h0;
-		end
-		`JMP: begin
-			io_control_code = 2'b00;
-			pc_control_code = 3'b001;
-			dc_control_code = 4'b0110;
-			ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
-			alu_control_code = {8'b0, 4'h0, 4'h0, 3'b000};
-			addr = datamux;
-			data_alu = 16'h0;
-		end
-	endcase
+    case (inst)
+        `MOV_RR: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], argb[3:0], arga[3:0], 3'b000};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `LOAD: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h0, datamux[3:0], 3'b010};
+            addr = 16'b0;
+            data_alu = arga;
+        end
+        `ADD_RR: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], datamux[3:0], arga[3:0], 3'b000};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `ADD_RI: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h8, arga[3:0], 3'b010};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `SUB_RR: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], datamux[3:0], arga[3:0], 3'b000};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `SUB_RI: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h8, arga[3:0], 3'b010};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `AND_RR: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], datamux[3:0], arga[3:0], 3'b000};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `AND_RI: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h8, arga[3:0], 3'b010};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `OR_RR: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], datamux[3:0], arga[3:0], 3'b000};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `OR_RI: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h8, arga[3:0], 3'b010};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `NOT_RR: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], datamux[3:0], arga[3:0], 3'b000};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `NOT_RI: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h8, arga[3:0], 3'b010};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `XOR_RR: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], datamux[3:0], arga[3:0], 3'b000};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `XOR_RI: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h8, arga[3:0], 3'b010};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `RAND_R: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h0, arga[3:0], 3'b000};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `RAND_I: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `ROR_R: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h0, arga[3:0], 3'b000};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `ROR_I: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `RXOR_R: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h0, arga[3:0], 3'b000};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `RXOR_I: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `LSL_I: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `LSR_I: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `ASL_I: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `ASR_I: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `CSL_I: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `CSR_I: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h0, 4'h8, 3'b010};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `INC: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h0, arga[3:0], 3'b000};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `DEC: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b010;
+            dc_control_code = 4'b0010;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {inst[7:0], 4'h0, arga[3:0], 3'b000};
+            addr = 16'b0;
+            data_alu = 16'h0;
+        end
+        `JMP: begin
+            io_control_code = 2'b00;
+            pc_control_code = 3'b001;
+            dc_control_code = 4'b0110;
+            ct_control_code = {1'b0, 5'b0, 1'b0, 2'b00, 4'b0000};
+            alu_control_code = {8'b0, 4'h0, 4'h0, 3'b000};
+            addr = datamux;
+            data_alu = 16'h0;
+        end
+    endcase
 end
