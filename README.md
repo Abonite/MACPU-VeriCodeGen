@@ -1,1 +1,1 @@
-# MACPU verilog code generrater
+# MACPU verilog code generater
