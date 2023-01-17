@@ -1,1 +1,1 @@
-# pycpu_verilog_coder_generater
+# MACPU verilog code generrater
